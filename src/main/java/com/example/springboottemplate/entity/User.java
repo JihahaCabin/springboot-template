@@ -1,11 +1,18 @@
 package com.example.springboottemplate.entity;
 
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class User {
+    @ApiModelProperty(value = "用户id")
     private Integer id;
+    @ApiModelProperty(value = "姓名")
     private String name;
+    @ApiModelProperty(value = "角色id")
     private Integer roleId;
+    @ApiModelProperty(value = "邮箱")
     private String mail;
+    @ApiModelProperty(value = "手机号")
     private String phone;
 
     public User() {
