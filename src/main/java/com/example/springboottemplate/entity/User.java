@@ -3,11 +3,15 @@ package com.example.springboottemplate.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
+
     @ApiModelProperty(value = "用户id")
     private Integer id;
     @ApiModelProperty(value = "姓名")
-    private String name;
+    private String username;
     @ApiModelProperty(value = "角色id")
     private Integer roleId;
     @ApiModelProperty(value = "邮箱")
@@ -18,9 +22,9 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String name, Integer roleId, String mail, String phone) {
+    public User(Integer id, String username, Integer roleId, String mail, String phone) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.roleId = roleId;
         this.mail = mail;
         this.phone = phone;
@@ -34,12 +38,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Integer getRoleId() {

@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>springboot-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-template</name>
+    <username>springboot-template</username>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -50,6 +50,19 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
+        </dependency>
+        <!--mysql数据库驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!--<scope>runtime</scope>-->
+        </dependency>
+
+        <!--mybatis-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.0</version>
         </dependency>
     </dependencies>
 

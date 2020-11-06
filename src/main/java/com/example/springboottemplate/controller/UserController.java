@@ -11,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Api(tags = "用户管理相关接口")
 @RequestMapping("/user")
@@ -35,6 +37,11 @@ public class UserController {
     public Result<Void> createUser(@RequestBody User user) {
         userService.createUser(user);
         return Result.success(null);
+    }
+
+    @GetMapping("/findAll")
+    public List<User> findAll() {
+        return userService.findAll();
     }
 
 }
