@@ -4,6 +4,7 @@ package com.example.springboottemplate.controller;
 import com.example.springboottemplate.dto.common.Result;
 import com.example.springboottemplate.entity.User;
 import com.example.springboottemplate.service.UserService;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -40,8 +41,9 @@ public class UserController {
     }
 
     @GetMapping("/findAll")
-    public List<User> findAll() {
-        return userService.findAll();
+    public PageInfo<User> findAll(@RequestParam(defaultValue = "1") Integer pageNum,
+                                  @RequestParam(defaultValue = "10") Integer pageSize) {
+        return userService.findAll(pageNum, pageSize);
     }
 
 }

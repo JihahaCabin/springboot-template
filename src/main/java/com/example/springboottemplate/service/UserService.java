@@ -1,6 +1,7 @@
 package com.example.springboottemplate.service;
 
 import com.example.springboottemplate.entity.User;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ public interface UserService {
 
     Void createUser(User user);
 
-    List<User> findAll();
+    PageInfo<User> findAll(Integer pageNum, Integer pageSize);
 }
