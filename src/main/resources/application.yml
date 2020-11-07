@@ -23,3 +23,9 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   pageSizeZero: false #pageSize=0
+
+# 通用mapper配置
+mapper:
+  mappers: com.example.springboottemplate.util.MyMapper
+  not-empty: false
+  identity: MYSQL

@@ -3,8 +3,10 @@ package com.example.springboottemplate.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.persistence.Table;
 import java.io.Serializable;
 
+@Table(name = "tb_user")
 public class User implements Serializable {
 
 

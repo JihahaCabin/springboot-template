@@ -17,7 +17,9 @@ public class UserServiceimpl implements UserService {
 
     @Override
     public User getUserName(Integer id) {
-        User user = new User(id, "haha", 1, "haha@163.com", "12345678901");
+        User user = new User();
+        user.setId(id);
+        user = userMapper.selectOne(user);
         return user;
     }
 
