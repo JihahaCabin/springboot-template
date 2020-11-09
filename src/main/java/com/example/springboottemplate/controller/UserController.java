@@ -2,6 +2,7 @@ package com.example.springboottemplate.controller;
 
 
 import com.example.springboottemplate.dto.common.Result;
+import com.example.springboottemplate.dto.common.ResultCode;
 import com.example.springboottemplate.entity.User;
 import com.example.springboottemplate.service.UserService;
 import com.github.pagehelper.PageInfo;
@@ -12,7 +13,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @Api(tags = "用户管理相关接口")
@@ -30,20 +30,21 @@ public class UserController {
     @GetMapping("/getUser/{id}")
     public Result<User> getUserName(@PathVariable("id") Integer id) {
         User user = userService.getUserName(id);
-        return Result.success(user);
+        return Result.<User>builder().code(ResultCode.SUCCESS.code()).res(user).build();
     }
 
     @ApiOperation("创建用户")
     @PostMapping("/createUser")
     public Result<Void> createUser(@RequestBody User user) {
         userService.createUser(user);
-        return Result.success(null);
+        return Result.<Void>builder().code(ResultCode.SUCCESS.code()).build();
     }
 
     @GetMapping("/findAll")
-    public PageInfo<User> findAll(@RequestParam(defaultValue = "1") Integer pageNum,
-                                  @RequestParam(defaultValue = "10") Integer pageSize) {
-        return userService.findAll(pageNum, pageSize);
+    public Result<PageInfo<User>> findAll(@RequestParam(defaultValue = "1") Integer pageNum,
+                                          @RequestParam(defaultValue = "10") Integer pageSize) {
+        PageInfo<User> users = userService.findAll(pageNum, pageSize);
+        return Result.<PageInfo<User>>builder().code(ResultCode.SUCCESS.code()).res(users).build();
     }
 
 }
